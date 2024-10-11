@@ -63,7 +63,7 @@ const Footer = () => {
 
     return (
         <footer className="pt-10">
-            <div className="max-w-6xl mx-auto px-4 md:px-10">
+            <div className="max-w-6xl mx-auto px-4 md:px-0">
                 <div className="grid grid-cols-2 sm:grid-cols-3 pl-5 lg:grid-cols-4 gap-24 md:gap-20 lg:gap-40 md:pl-10 lg:pl-0 w-full justify-center">
                     <div className="flex flex-col gap-3 items-center max-w-40">
                        <RiMoneyDollarCircleLine fontSize={33} className="text-gray-400"/>

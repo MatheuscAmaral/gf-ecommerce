@@ -20,7 +20,7 @@ export default function RootLayout({
             rel="stylesheet" 
         />
       </head>
-      <body className="grid grid-rows-[auto,1fr,auto] min-h-screen relative">
+      <body className="grid grid-rows-[auto,1fr,auto] min-h-screen relative w-full">
         <Header/>
         {children}
         <Footer/>

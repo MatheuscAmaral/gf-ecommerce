@@ -11,20 +11,30 @@ import { RxDashboard } from "react-icons/rx";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { LuPanelBottom } from "react-icons/lu";
 import { LuUser } from "react-icons/lu";
+import Link from 'next/link';
+
 
 const Header = () => {
     const [mobile, setMobile] = useState(false);
     const logoGf = logo.src;
 
     return (
-      <main className="w-full fixed shadow-md mb-3 top-0 bg-white z-50">
-        <header className="w-full flex justify-between items-center mx-auto max-w-5xl py-3 px-3 xl:px-0">
-            <Image src={logoGf} width={45} height={45} alt="logo"/>
+      <main className="w-full fixed shadow-lg top-0 bg-white z-50">
+        <header className="w-full flex justify-between items-center mx-auto max-w-6xl py-3 px-3 xl:px-0">
+            <Link href={"/"}>
+                <Image src={logoGf} width={45} height={45} alt="logo"/>
+            </Link>
 
             <ul className="hidden md:flex items-center gap-10 font-medium text-gray-700" style={{ fontSize: 11 }}> 
-                <li className="cursor-pointer hover:text-gray-500">PRODUTOS</li>
-                <li className="cursor-pointer hover:text-gray-500">COMO FUNCIONA</li>
-                <li className="cursor-pointer hover:text-gray-500">CENTRAL DE AJUDA</li>
+                <li>
+                    <Link href={`/catalog/all`} className="cursor-pointer hover:text-gray-500">PRODUTOS</Link>
+                </li>
+                <li>
+                    <Link href={`/catalog/all`} className="cursor-pointer hover:text-gray-500">COMO FUNCIONA</Link>
+                </li>
+                <li>
+                    <Link href={`/catalog/all`} className="cursor-pointer hover:text-gray-500">CENTRAL DE AJUDA</Link>
+                </li>
                 <li>
                     <button className="px-3 flex gap-2 items-center py-1 border border-gray-300 hover:bg-gray-100 transition-all rounded-xl font-semibold">
                         <FaUserAlt fontSize={12}/>

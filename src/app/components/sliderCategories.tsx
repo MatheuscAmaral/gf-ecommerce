@@ -1,7 +1,5 @@
 'use client'
 
-import * as React from "react"
-
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -9,55 +7,69 @@ import {
   CarouselItem
 } from "@/components/ui/carousel"
 import Image from "next/image"
-
+import { usePathname } from "next/navigation" 
 import iphone from "../../images/iphone.png"
 import macbook from "../../images/macbook.png"
 import relogio from "../../images/relogio.png"
 import ps5 from "../../images/ps5.png"
 import camera from "../../images/camera.png"
+import ipad from "../../images/ipad.png"
+import Link from "next/link"
 
 const categories = [
     {
-        image: <Image src={iphone.src} alt="" width={60} height={60} />,
-        title: "iPhones"
+        image: <Image src={iphone.src} alt="" width={100} height={100} />,
+        title: "iPhones",
+        path: "/catalog/iphones"
     },
     {
-        image: <Image src={macbook.src} alt="" width={60} height={60} />,
-        title: "Macbook"
+        image: <Image src={macbook.src} alt="" width={100} height={100} />,
+        title: "Macbook",
+        path: "/catalog/macbooks"
     },
     {
-        image: <Image src={relogio.src} alt="" width={60} height={60} />,
-        title: "Relógios"
+        image: <Image src={relogio.src} alt="" width={100} height={100} />,
+        title: "Relógios",
+        path: "/catalog/relogios"
     },
     {
-        image: <Image src={ps5.src} alt="" width={60} height={60} />,
-        title: "Consoles"
+        image: <Image src={ipad.src} alt="" width={100} height={100} />,
+        title: "Ipads",
+        path: "/catalog/ipads"
     },
     {
-        image: <Image src={camera.src} alt="" width={80} height={80} />,
-        title: "Cameras"
+        image: <Image src={ps5.src} alt="" width={100} height={100} />,
+        title: "Consoles",
+        path: "/catalog/consoles"
+    },
+    {
+        image: <Image src={camera.src} alt="" width={100} height={100} />,
+        title: "Cameras",
+        path: "/catalog/cameras"
     }
 ]
 
 const Slider = () => {
+  const pathname = usePathname();
 
   return (
     <Carousel
       opts={{
         align: "start",
       }}
-      className="w-full max-w-96 lg:max-w-xl"
+      className=" max-w-6xl mx-auto"
     >
       <CarouselContent>
         {categories.map((c, index) => (
-          <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5 transition-all">
-            <div className="flex flex-col gap-2 items-center">
+          <CarouselItem key={index} className=" basis-auto transition-all">
+            <div className="flex flex-col gap-2 select-none items-center">
               <Card className="cursor-pointer">
-                <CardContent className="w-20 h-20 flex gap-3 bg-stone-100 hover:bg-stone-200 rounded-full items-center justify-center p-4">
-                  <span className="text-3xl font-semibold ">{c.image}</span>
-                </CardContent>
+                <Link href={c.path}>
+                  <CardContent className={`w-24 h-24 ${c.path === pathname ? "border-black border" : ""} flex gap-3 bg-stone-100 hover:bg-stone-200 rounded-full items-center justify-center p-4`}>
+                    <span className="text-3xl font-semibold ">{c.image}</span>
+                  </CardContent>
+                </Link>
               </Card>
-
               <p className="text-xs fonts">{c.title}</p>
             </div>
           </CarouselItem>
@@ -66,6 +78,5 @@ const Slider = () => {
     </Carousel>
   )
 }
-
 
 export default Slider;
