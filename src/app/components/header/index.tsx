@@ -1,6 +1,6 @@
 'use client'
 
-import logo from "../../images/logo.png";
+import logo from "../../../images/logo.png";
 import Image from "next/image";
 import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
@@ -17,13 +17,13 @@ const Header = () => {
     const logoGf = logo.src;
 
     return (
-      <main className="w-full fixed top-0 shadow-md mb-3 top-0">
-        <header className="w-full flex justify-between items-center mx-auto max-w-6xl py-3 px-3 xl:px-0">
+      <main className="w-full fixed shadow-md mb-3 top-0 bg-white z-50">
+        <header className="w-full flex justify-between items-center mx-auto max-w-5xl py-3 px-3 xl:px-0">
             <Image src={logoGf} width={45} height={45} alt="logo"/>
 
             <ul className="hidden md:flex items-center gap-10 font-medium text-gray-700" style={{ fontSize: 11 }}> 
                 <li className="cursor-pointer hover:text-gray-500">PRODUTOS</li>
-                <li className="cursor-pointer hover:text-gray-500">COMO FUNCIONAR</li>
+                <li className="cursor-pointer hover:text-gray-500">COMO FUNCIONA</li>
                 <li className="cursor-pointer hover:text-gray-500">CENTRAL DE AJUDA</li>
                 <li>
                     <button className="px-3 flex gap-2 items-center py-1 border border-gray-300 hover:bg-gray-100 transition-all rounded-xl font-semibold">

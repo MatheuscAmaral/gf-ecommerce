@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./header";
-import Footer from "./footer";
-
+import Header from "../app/components/header";
+import Footer from "../app/components/footer";
 
 export const metadata: Metadata = {
   title: "Gf Impports",
@@ -14,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <head>
         <link 
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" 

@@ -15,11 +15,11 @@ const Footer = () => {
             label: "SOBRE NÓS",
             items: [
                 {
-                    href: 'javascript:void()',
+                    href: '#',
                     name: 'Trabalhe conosco'
                 },
                 {
-                    href: 'javascript:void()',
+                    href: '#',
                     name: 'Blog'
                 }
             ],
@@ -28,7 +28,7 @@ const Footer = () => {
             label: "SERVIÇOS",
             items: [
                 {
-                    href: 'javascript:void()',
+                    href: '#',
                     name: 'Produtos'
                 }
             ]
@@ -37,11 +37,11 @@ const Footer = () => {
             label: "SEGURANÇA",
             items: [
                 {
-                    href: 'javascript:void()',
+                    href: '#',
                     name: 'Termos de uso'
                 },
                 {
-                    href: 'javascript:void()',
+                    href: '#',
                     name: 'Proteção de dados'
                 }
             ]
@@ -50,11 +50,11 @@ const Footer = () => {
             label: "CONTATOS",
             items: [
                 {
-                    href: 'javascript:void()',
+                    href: '#',
                     name: 'E-mail'
                 },
                 {
-                    href: 'javascript:void()',
+                    href: '#',
                     name: 'Whatsapp'
                 }
             ],
@@ -63,7 +63,7 @@ const Footer = () => {
 
     return (
         <footer className="pt-10">
-            <div className="max-w-7xl mx-auto px-4 md:px-10">
+            <div className="max-w-6xl mx-auto px-4 md:px-10">
                 <div className="grid grid-cols-2 sm:grid-cols-3 pl-5 lg:grid-cols-4 gap-24 md:gap-20 lg:gap-40 md:pl-10 lg:pl-0 w-full justify-center">
                     <div className="flex flex-col gap-3 items-center max-w-40">
                        <RiMoneyDollarCircleLine fontSize={33} className="text-gray-400"/>
@@ -118,10 +118,10 @@ const Footer = () => {
                 <div className="mt-10 py-10 border-t items-center justify-between sm:flex">
                     <p className="text-gray-600 text-xs">© 2024 Gf Impports. Todos os direitos reservados.</p>
                     <div className="flex items-center gap-x-6 text-gray-400">
-                        <a href="javascript:void()">
+                        <a href="#">
                             <FaWhatsapp fontSize={25} className="hover:text-gray-500 duration-150"/>
                         </a>
-                        <a href="javascript:void()">
+                        <a href="#">
                             <SiInstagram fontSize={23} className="hover:text-gray-500 duration-150"/>
                         </a>
                     </div>
