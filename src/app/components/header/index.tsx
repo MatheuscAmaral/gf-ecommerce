@@ -19,7 +19,7 @@ const Header = () => {
     const logoGf = logo.src;
 
     return (
-      <main className="w-full fixed shadow-lg top-0 bg-white z-50">
+      <main className={`${mobile && "overflow-hidden"} w-full fixed shadow-lg top-0 bg-white z-50`}>
         <header className="w-full flex justify-between items-center mx-auto max-w-6xl py-3 px-3 xl:px-0">
             <Link href={"/"}>
                 <Image src={logoGf} width={45} height={45} alt="logo"/>
@@ -50,7 +50,7 @@ const Header = () => {
 
         {
             mobile && (
-                <div className={`fixed md:hidden bg-white top-0 w-full min-h-screen`}>
+                <div className={`fixed overflow-hidden md:hidden bg-white top-0 w-full min-h-screen`}>
                     <section className="flex justify-between items-center p-3 shadow-md">
                             <div>
                                 <Image src={logoGf} width={45} height={45} alt="logo"/>
@@ -79,12 +79,36 @@ const Header = () => {
                                 </div>
                             }>
                                 <ul className="flex flex-col gap-5 px-5 transition-all">
-                                    <li className="hover:text-gray-500 cursor-pointer">Iphones</li>
-                                    <li className="hover:text-gray-500 cursor-pointer">MacBooks</li>
-                                    <li className="hover:text-gray-500 cursor-pointer">Apple Watchs</li>
-                                    <li className="hover:text-gray-500 cursor-pointer">Consoles</li>
-                                    <li className="hover:text-gray-500 cursor-pointer">Cameras</li>
-                                    <li className="hover:text-gray-500 cursor-pointer">Iluminação</li>
+                                    <li className="hover:text-gray-500 cursor-pointer">
+                                        <Link href={"/catalog/iphones"} onClick={() => setMobile(false)}>
+                                            Iphones
+                                        </Link>
+                                    </li>
+                                    <li className="hover:text-gray-500 cursor-pointer">
+                                        <Link href={"/catalog/macbooks"} onClick={() => setMobile(false)}>
+                                            MacBooks
+                                        </Link>
+                                    </li>
+                                    <li className="hover:text-gray-500 cursor-pointer">
+                                        <Link href={"/catalog/relogios"} onClick={() => setMobile(false)}>
+                                            Apple Watchs
+                                        </Link>
+                                    </li>
+                                    <li className="hover:text-gray-500 cursor-pointer">
+                                        <Link href={"/catalog/ipads"} onClick={() => setMobile(false)}>
+                                             Ipads
+                                        </Link>
+                                    </li>
+                                    <li className="hover:text-gray-500 cursor-pointer">
+                                        <Link href={"/catalog/consoles"} onClick={() => setMobile(false)}>
+                                            Consoles
+                                        </Link>
+                                    </li>
+                                    <li className="hover:text-gray-500 cursor-pointer">
+                                        <Link href={"/catalog/cameras"} onClick={() => setMobile(false)}>
+                                            Cameras
+                                        </Link>
+                                    </li>
                                 </ul>
                             </AccordionItem>
                         </Accordion>

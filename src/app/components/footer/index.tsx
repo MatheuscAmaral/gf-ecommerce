@@ -8,8 +8,6 @@ import { SiInstagram } from "react-icons/si";
 import { PiChatBold } from "react-icons/pi";
 
 const Footer = () => {
-    const router = useRouter();
-
     const footerNavs = [
         {
             label: "SOBRE NÓS",
@@ -64,7 +62,7 @@ const Footer = () => {
     return (
         <footer className="pt-10">
             <div className="max-w-6xl mx-auto px-4 md:px-0">
-                <div className="grid grid-cols-2 sm:grid-cols-3 pl-5 lg:grid-cols-4 gap-24 md:gap-20 lg:gap-40 md:pl-10 lg:pl-0 w-full justify-center">
+                <div className="grid grid-cols-2 sm:grid-cols-3 pl-5 lg:grid-cols-4 gap-24 md:gap-20 ml-16 sm:ml-0 lg:gap-40 md:pl-10 lg:pl-0 w-full justify-center">
                     <div className="flex flex-col gap-3 items-center max-w-40">
                        <RiMoneyDollarCircleLine fontSize={33} className="text-gray-400"/>
                        <h3 className="font-semibold text-sm">Pagamentos</h3>
@@ -116,7 +114,7 @@ const Footer = () => {
                     }
                 </div>
                 <div className="mt-10 py-10 border-t items-center justify-between sm:flex">
-                    <p className="text-gray-600 text-xs">© 2024 Gf Impports. Todos os direitos reservados.</p>
+                    <p className="text-gray-600 text-xs mb-5 md:mb-0">© 2024 Gf Impports. Todos os direitos reservados.</p>
                     <div className="flex items-center gap-x-6 text-gray-400">
                         <a href="#">
                             <FaWhatsapp fontSize={25} className="hover:text-gray-500 duration-150"/>
