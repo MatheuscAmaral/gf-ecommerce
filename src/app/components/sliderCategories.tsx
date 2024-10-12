@@ -1,11 +1,7 @@
 'use client'
 
 import { Card, CardContent } from "@/components/ui/card"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem
-} from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import Image from "next/image"
 import { usePathname } from "next/navigation" 
 import iphone from "../../images/iphone.png"
@@ -57,11 +53,14 @@ const Slider = () => {
       opts={{
         align: "start",
       }}
-      className=" max-w-6xl mx-auto"
+      className="w-full max-w-sm sm:max-w-xl md:max-w-4xl "
     >
-      <CarouselContent>
+      <CarouselContent className="flex flex-row">
         {categories.map((c, index) => (
-          <CarouselItem key={index} className=" basis-auto transition-all">
+          <CarouselItem 
+            key={index} 
+            className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6"
+          >
             <div className="flex flex-col gap-2 select-none items-center">
               <Card className="cursor-pointer">
                 <Link href={c.path}>

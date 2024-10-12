@@ -75,7 +75,7 @@ const Cards = () => {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
       {list.map((item, index) => (
-        <Card className="flex flex-row sm:flex-col gap-2 justify-start items-center lg:max-w-2xl w-full" shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
+        <Card className="flex flex-row sm:flex-col gap-2 justify-start items-center lg:max-w-2xl w-full" shadow="sm" key={index} isPressable>
           <CardBody className="overflow-visible items-center p-5">
             <Image
               alt={item.title}
@@ -86,14 +86,14 @@ const Cards = () => {
           <CardFooter className="text-small items-start flex flex-col gap-4 mb-2">
             <div className="flex flex-col gap-2 text-start">
                 <h1 className="text-lg sm:text-md font-bold text-gray-800">{item.title}</h1>
-                <span className="text-md sm:text-xs text-gray-400 font-normal">{item.description}</span>
+                <span className="text-xs sm:text-xs text-gray-400 font-normal">{item.description}</span>
             </div>
             
             {
                 item.stock > 0 ? (
                     <div className="flex flex-col text-start gap-0.5">
                         <p className="text-md sm:text-xs text-gray-700">Parcelas a partir de:</p>
-                        <span className="flex text-lg sm:text-sm gap-2 font-medium">
+                        <span className="flex text-md sm:text-sm gap-2 font-medium">
                             <p className={`text-default-500 ${item.priceWithDisccount ? "line-through" : "text-green-700" }`}>{item.price}</p>
                             <p className=" text-green-700">{item.priceWithDisccount}</p>
                         </span>
