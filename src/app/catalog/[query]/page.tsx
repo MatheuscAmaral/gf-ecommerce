@@ -3,9 +3,10 @@ import Slider from "../../components/sliderCategories";
 import BreadCrumb from "@/app/components/breadCrumb";
 import Cards from "@/app/components/cardsProducts";
 
-interface ParamsProps {
+export interface ParamsProps {
   params: [
-    query: string
+    query: string,
+    id: number
   ]
 } 
 

@@ -4,11 +4,14 @@ import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 
 interface ParamsProps {
-  params: [query: string];
+  params: [
+    query: string,
+    id: number
+  ];
 }
 
 const BreadCrumb = ({ params }: ParamsProps) => {
-  const { query } = params as unknown as { query: string };
+  const { query, id } = params as unknown as { query: string, id: number };
 
   return (
     <div className="flex gap-2 max-w-5xl mx-auto pt-1 items-center text-xs text-gray-700">
@@ -67,7 +70,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
           </Link>
         </>
       )}
-      
+
       {query == "cameras" && (
         <>
           <IoIosArrowForward fontSize={15} />
@@ -76,6 +79,15 @@ const BreadCrumb = ({ params }: ParamsProps) => {
           </Link>
         </>
       )}
+
+      {
+        <>
+          <IoIosArrowForward fontSize={15} />
+          <Link href={`/catalog/details/${id}`} className="hover:text-gray-400">
+            {id}
+          </Link>
+        </>
+      }
     </div>
   );
 };
