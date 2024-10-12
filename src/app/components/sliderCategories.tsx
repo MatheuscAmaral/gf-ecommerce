@@ -53,7 +53,7 @@ const Slider = () => {
       opts={{
         align: "start",
       }}
-      className="w-full max-w-sm sm:max-w-xl md:max-w-4xl "
+      className="w-full max-w-xs sm:max-w-xl md:max-w-4xl "
     >
       <CarouselContent className="flex flex-row">
         {categories.map((c, index) => (

@@ -85,15 +85,15 @@ const Cards = () => {
           </CardBody>
           <CardFooter className="text-small items-start flex flex-col gap-4 mb-2">
             <div className="flex flex-col gap-2 text-start">
-                <h1 className="text-lg sm:text-md font-bold text-gray-800">{item.title}</h1>
+                <h1 className="text-md font-bold text-gray-800">{item.title}</h1>
                 <span className="text-xs sm:text-xs text-gray-400 font-normal">{item.description}</span>
             </div>
             
             {
                 item.stock > 0 ? (
                     <div className="flex flex-col text-start gap-0.5">
-                        <p className="text-md sm:text-xs text-gray-700">Parcelas a partir de:</p>
-                        <span className="flex text-md sm:text-sm gap-2 font-medium">
+                        <p className="text-xs text-gray-700">Parcelas a partir de:</p>
+                        <span className="flex text-xs sm:text-sm gap-2 font-medium">
                             <p className={`text-default-500 ${item.priceWithDisccount ? "line-through" : "text-green-700" }`}>{item.price}</p>
                             <p className=" text-green-700">{item.priceWithDisccount}</p>
                         </span>
