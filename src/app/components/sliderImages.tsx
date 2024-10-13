@@ -46,13 +46,15 @@ const SliderImages = () => {
   return (
     <Slider {...settings}>
       <div>
-        <Image src={iphone} alt="iphone" width={450} height={450} />
+        <Image src={iphone} className="sm:ml-10 md:ml-0" alt="iphone" width={windowWidth >= 700 ? 450 : 400} height={windowWidth >= 700 ? 450 : 400} />
       </div>
+
       <div>
-        <Image src={iphone} alt="iphone" width={450} height={450} />
+        <Image src={iphone} className="sm:ml-10 md:ml-0" alt="iphone" width={windowWidth >= 700 ? 450 : 400} height={windowWidth >= 700 ? 450 : 400} />
       </div>
+
       <div>
-        <Image src={iphone} alt="iphone" width={450} height={450} />
+        <Image src={iphone} className="sm:ml-10 md:ml-0" alt="iphone" width={windowWidth >= 700 ? 450 : 400} height={windowWidth >= 700 ? 450 : 400} />
       </div>
     </Slider>
   );
