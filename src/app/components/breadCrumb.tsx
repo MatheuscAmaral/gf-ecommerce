@@ -1,92 +1,89 @@
 "use client";
 
-import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
+import { ParamsProps } from "../catalog/[query]/page";
+import { useRouter } from "next/navigation";
 
-interface ParamsProps {
-  params: [
-    query: string,
-    id: number
-  ];
-}
 
 const BreadCrumb = ({ params }: ParamsProps) => {
   const { query, id } = params as unknown as { query: string, id: number };
+  const router = useRouter();
 
   return (
     <div className="flex gap-2 max-w-5xl mx-auto pt-1 items-center text-xs text-gray-700">
-      <Link href={"/"} className="hover:text-gray-400">
+      <button onClick={() => router.push("/")} className=" hover:text-gray-400">
         HOME
-      </Link>
+      </button>
       <IoIosArrowForward fontSize={15} />
-      <Link
-        href={"/catalog/all"}
-        className=" text-gray-500 hover:text-gray-400"
+      <button
+        onClick={() => router.push("/catalog/all")}
+        className=" text-gray-500  hover:text-gray-400"
       >
         CATÁLOGO
-      </Link>
+      </button>
 
       {query == "iphones" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <Link href={"/catalog/iphones"} className="hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/iphones")} className=" hover:text-gray-400">
             IPHONES
-          </Link>
+          </button>
         </>
       )}
 
       {query == "macbooks" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <Link href={"/catalog/macbooks"} className="hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/macbooks")} className=" hover:text-gray-400">
             MACBOOKS
-          </Link>
+          </button>
         </>
       )}
 
       {query == "relogios" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <Link href={"/catalog/relogios"} className="hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/relogios")} className=" hover:text-gray-400">
             RELÓGIOS
-          </Link>
+          </button>
         </>
       )}
 
       {query == "ipads" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <Link href={"/catalog/ipads"} className="hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/ipads")} className=" hover:text-gray-400">
             IPADS
-          </Link>
+          </button>
         </>
       )}
 
       {query == "consoles" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <Link href={"/catalog/consoles"} className="hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/consoles")} className=" hover:text-gray-400">
             CONSOLES
-          </Link>
+          </button>
         </>
       )}
 
       {query == "cameras" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <Link href={"/catalog/cameras"} className="hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/cameras")} className=" hover:text-gray-400">
             CAMERAS
-          </Link>
+          </button>
         </>
       )}
 
-      {
-        <>
-          <IoIosArrowForward fontSize={15} />
-          <Link href={`/catalog/details/${id}`} className="hover:text-gray-400">
-            {id}
-          </Link>
-        </>
+      { id && (
+         <>
+            <IoIosArrowForward fontSize={15} />
+            <button onClick={() => router.push(`/catalog/details/${id}`)} className=" hover:text-gray-400">
+                {id}
+            </button>
+         </>
+        )
       }
     </div>
   );
