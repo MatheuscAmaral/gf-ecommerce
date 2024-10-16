@@ -1,8 +1,7 @@
 "use client";
 
 import logo from "../../../images/logo.png";
-import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
@@ -11,11 +10,60 @@ import { RxDashboard } from "react-icons/rx";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { LuPanelBottom } from "react-icons/lu";
 import { LuUser } from "react-icons/lu";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { RiShoppingBag3Line } from "react-icons/ri";
+import Box from '@mui/material/Box';
+import iphone from "../../../images/iphone.png"
+import ipad from "../../../images/ipad.png";
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Divider from '@mui/material/Divider';
+import { FaTrash } from "react-icons/fa";
+import { TbCircleDashedCheck } from "react-icons/tb";
+import { Button } from "@/components/ui/button";
+
+type Anchor = 'right';
+
+const products = [
+  {
+    id: 1,
+    title: "iPhone 16 pro max",
+    description: "6.1 polegadas, A14 Bionic, Super...",
+    img: ipad.src,
+    priceWithDisccount: 7000,
+    price: 6500,
+    category: "Smartphones",
+    storage: ["64GB", "128GB"],
+    stock: 10,
+  },
+  {
+    id: 1,
+    title: "iPhone 16 pro max",
+    description: "6.1 polegadas, A14 Bionic, Super...",
+    img: ipad.src,
+    priceWithDisccount: 7000,
+    price: 6500,
+    category: "Smartphones",
+    storage: ["64GB", "128GB"],
+    stock: 10,
+  },
+  {
+    id: 1,
+    title: "iPhone 16 pro max",
+    description: "6.1 polegadas, A14 Bionic, Super...",
+    img: iphone.src,
+    priceWithDisccount: 7000,
+    price: 6500,
+    category: "Smartphones",
+    storage: ["64GB", "128GB"],
+    stock: 10,
+  }
+];
 
 const Header = () => {
   const [mobile, setMobile] = useState(false);
+  const [state, setState] = useState({
+    right: false,
+  });
   const router = useRouter();
   const logoGf = logo.src;
 
@@ -24,6 +72,85 @@ const Header = () => {
     setMobile(false);
   }
 
+  const formatPrice = (value: number) => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(value);
+  };
+
+  const toggleDrawer =
+  (anchor: Anchor, open: boolean) =>
+  (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+const list = (anchor: Anchor) => (
+  <Box
+    sx={{ width: !(anchor === 'right') ? 'auto' : 330 }}
+    role="presentation"
+    onKeyDown={toggleDrawer(anchor, false)}
+  >
+    <section className="flex justify-between px-5 py-2 items-center select-none">
+      <p className="text-sm">Carrinho <span>(0)</span></p>
+      <IoClose fontSize={23} className="cursor-pointer" onClick={toggleDrawer(anchor, false)}/>
+    </section>
+    <Divider className="opacity-35"/>
+
+    <section className="flex flex-col gap-3 w-full mt-5 px-3">
+      {
+        products && products.map((p) => {
+            return (
+              <div className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
+                <img src={p.img} className="w-20 h-20 object-cover"/>
+
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-3 mt-2">
+                    <h4 className="text-xs font-semibold text-black">{p.title}</h4>
+                    <div className="flex gap-1 border-1 w-14 items-center justify-center text-sm border-gray-100 px-1 rounded-full">
+                      <button>-</button>
+                      <span className="text-xs">0</span>
+                      <button>+</button>
+                    </div>
+                  </div>
+
+                  <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(p.price)}</p>
+                  <FaTrash fontSize={15} className="absolute right-2 top-2 hover:text-red-500 transition-all"/>
+                </div>
+              </div>
+            )
+        })
+      }
+    </section>
+
+    <section className="h-52 text-md flex pl-5 pr-3 max-w-80 flex-col gap-3 justify-center w-full fixed bottom-0 bg-white">
+      <div className="flex flex-col gap-1">
+        <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(products[0].price)}</span></p>
+        <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
+      </div>
+
+      <hr />
+      
+      <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(products[0].price)}</span></p>
+      <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
+
+      <Button className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
+        <TbCircleDashedCheck fontSize={20}/> Finalizar compra
+      </Button>
+    </section>
+  </Box>
+);
+
+
   return (
     <main
       className={`${
@@ -31,15 +158,23 @@ const Header = () => {
       } w-full fixed shadow-lg top-0 bg-white z-50`}
     >
       <header className="w-full flex justify-between items-center mx-auto max-w-6xl py-3 px-3 xl:px-0">
-        <button onClick={() => router.push("/")}>
-          <Image src={logoGf} width={45} height={45} alt="logo" />
+        <button
+          className="flex md:hidden hover:bg-gray-100 rounded-md transition-all p-3"
+          onClick={() => setMobile(true)}
+        >
+          <FaBarsStaggered fontSize={20} />
         </button>
 
+        <button onClick={() => router.push("/")}>
+          <img src={logoGf} className="w-14 md:w-12" alt="logo" />
+        </button>
+
+
         <ul
-          className="hidden md:flex items-center gap-10 font-medium text-gray-700"
+          className="flex items-center gap-10 font-medium text-gray-700 md:pr-4 xl:pr-0"
           style={{ fontSize: 11 }}
         >
-          <li>
+          <li className="hidden md:flex">
             <button
               onClick={() => router.push("/catalog/all")}
               className="cursor-pointer text-start hover:text-gray-500"
@@ -47,7 +182,7 @@ const Header = () => {
               PRODUTOS
             </button>
           </li>
-          <li>
+          <li className="hidden md:flex">
             <button
               onClick={() => router.push("/catalog/all")}
               className="cursor-pointer text-start hover:text-gray-500"
@@ -55,37 +190,56 @@ const Header = () => {
               COMO FUNCIONA
             </button>
           </li>
-          <li>
+          {/* <li className="hidden md:flex">
             <button
              onClick={() => router.push("/catalog/all")}
               className="cursor-pointer text-start hover:text-gray-500"
             >
               CENTRAL DE AJUDA
             </button>
-          </li>
-          <li>
-            <button className="px-3 flex gap-2 items-center py-1 border border-gray-300 hover:bg-gray-100 transition-all rounded-xl font-semibold">
+          </li> */}
+
+          <li className="hidden md:flex">
+            <button onClick={() => router.push("/sign-in")} className="px-3 flex gap-2 items-center py-1 border border-gray-300 hover:bg-gray-100 transition-all rounded-xl font-semibold">
               <FaUserAlt fontSize={12} />
               <span>Já sou cliente</span>
             </button>
           </li>
+
+          <li className="md:relative">
+            <button className="relative mr-4 md:mr-0 md:ml-5">
+              <RiShoppingBag3Line className="text-gray-700 hover:text-gray-500" fontSize={23}/>
+              <span className="absolute bottom-5 left-3 px-1 py-0 bg-gray-400 rounded-full text-white">0</span>
+            </button>
+            
+            <div className="absolute bottom-6 md:bottom-0 right-0 md:left-0 opacity-0">
+              {(['right'] as const).map((anchor) => (
+                <React.Fragment key={anchor}>
+                  <Button className="text-xs mr-3" onClick={toggleDrawer(anchor, true)}>
+                    s
+                  </Button>
+                  <SwipeableDrawer
+                    anchor={anchor}
+                    open={state[anchor]}
+                    onClose={toggleDrawer(anchor, false)}
+                    onOpen={toggleDrawer(anchor, true)}
+                  >
+                    {list(anchor)}
+                  </SwipeableDrawer>
+                </React.Fragment>
+              ))}
+            </div>
+          </li>
         </ul>
-
-        <button
-          className="flex md:hidden hover:bg-gray-100 rounded-md transition-all p-3"
-          onClick={() => setMobile(true)}
-        >
-          <FaBarsStaggered fontSize={20} />
-        </button>
       </header>
-
+      
       {mobile && (
         <div
           className={`fixed overflow-hidden md:hidden bg-white top-0 w-full min-h-screen`}
         >
           <section className="flex justify-between items-center p-3 shadow-md">
             <button onClick={() => router.push("/")}>
-              <Image src={logoGf} width={45} height={45} alt="logo" />
+              <img src={logoGf} className="w-12" alt="logo" />
             </button>
 
             <button
@@ -98,7 +252,7 @@ const Header = () => {
 
           <section>
             <div className="py-4">
-              <button className="px-3 mx-2 mb-3 flex gap-1 items-center text-xs py-1 border border-gray-200 hover:bg-gray-100 transition-all rounded-xl">
+              <button onClick={() => router.push("/sign-in")}  className="px-3 mx-2 mb-3 flex gap-1 items-center text-xs py-1 border border-gray-200 hover:bg-gray-100 transition-all rounded-xl">
                 <LuUser fontSize={15} />
                 <span>Já sou cliente</span>
               </button>

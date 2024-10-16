@@ -31,7 +31,7 @@ const SliderProducts = ({ products }: { products: ProductProps[] }) => {
     >
       <CarouselContent className="flex flex-row">
         {products.map((p, index) => (
-          <CarouselItem key={index} className="basis-auto">
+          <CarouselItem key={index} className="basis-1/2 sm:basis-auto lg:basis-1/4">
             <div
               className="flex flex-col gap-3 py-5 px-1 select-none items-center"
               style={{ pointerEvents: "none" }}

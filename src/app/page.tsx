@@ -14,6 +14,8 @@ import ps5 from "../images/ps5.png";
 import camera from "../images/camera.png";
 import ipad from "../images/ipad.png";
 import Categories from "./components/categories";
+import { FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 
 const products = [
   {
@@ -133,28 +135,35 @@ const Home = async () => {
     <Container>
         <CarouselImages/>
 
-        <section className="flex flex-col gap-16 w-full mb-20 mt-20">
-          <Categories categories={categories}/>
-
-          <div className="w-full flex flex-col gap-3 py-10">
-            <h3 className="text-start pl-5 md:text-center text-xl font-semibold">Produtos mais comprados</h3>
-            <SliderProducts products={products}/>
+        <section className="flex flex-col gap-16 w-full mb-20 mt-10 xs:mt-20">
+          <div className="px-3 mr-3 xs:mr-9 sm:mr-0">
+            <Categories categories={categories} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 px-5 lg:px-0 max-w-5xl mx-auto">
-            <img className="rounded-lg w-full h-72" src={iphone16.src}/>
-            <img className="rounded-lg w-full h-72"  src={iphone16pro.src}/>
-            <img className="rounded-lg w-full h-72"  src={airpod.src}/>
-            <img className="rounded-lg w-full h-72"  src={watchUltra.src}/>
+          <div className="w-full flex flex-col gap-3 py-10 ml-2 xs:ml-0 max-w-md xs:max-w-full">
+            <h3 className="text-start pl-3 md:text-center text-xl font-semibold">Produtos mais comprados</h3>
+            <SliderProducts products={products} />
           </div>
 
-          <div className="w-full flex flex-col gap-3 py-10">
-            <h3 className="text-start pl-5 md:text-center text-xl font-semibold">Recomendados pela GF</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 mx-auto gap-5 px-5 lg:px-0 max-w-5xl">
+            <img className="rounded-lg w-full h-72" src={iphone16.src} />
+            <img className="rounded-lg w-full h-72" src={iphone16pro.src} />
+            <img className="rounded-lg w-full h-72" src={airpod.src} />
+            <img className="rounded-lg w-full h-72" src={watchUltra.src} />
+          </div>
+
+
+          <div className="w-full flex flex-col gap-3 py-10 ml-2 xs:ml-0 max-w-md xs:max-w-full">
+            <h3 className="text-start pl-3 md:text-center text-xl font-semibold">Recomendados pela GF</h3>
             <SliderProducts products={products}/>
 
             <ButtonSeeAllProducts route="/catalog/all"/>
           </div>
         </section>
+
+        <Link href={"https://wa.me/+553197066818"} target="_blank" className="bg-green-400 hover:bg-green-300 transition-all p-3.5 rounded-full fixed bottom-5 right-5 text-white">
+          <FaWhatsapp fontSize={30}/>
+        </Link>
     </Container>
   );
 }

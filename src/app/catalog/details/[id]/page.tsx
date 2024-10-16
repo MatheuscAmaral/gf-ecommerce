@@ -131,7 +131,7 @@ const Details = ({ params }: ParamsProps ) => {
                 <BreadCrumb params={params}/>
             </section>
 
-            <section className="grid grid-cols-1 sm:grid-cols-2 gap-10 my-16 sm:my-20 mx-auto max-w-6xl w-full px-5">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-10 my-16 sm:my-20 mx-auto max-w-6xl w-full px-5">
                 <div className=" ml-10">
                     <SliderImages/>
                 </div>
@@ -203,7 +203,7 @@ const Details = ({ params }: ParamsProps ) => {
                 <div className=" border-y flex flex-col gap-7 py-16 border-gray-200 max-w-6xl mx-auto">
                     <h3 className="text-xl font-semibold text-gray-800">O que vem na caixa</h3>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 md:max-w-2xl gap-3">
+                    <div className="grid grid-cols-2 md:grid-cols-4 pr-3 md:max-w-2xl gap-3">
                         <div className="flex flex-col w-full md:w-36 h-36 justify-center gap-4 border border-gray-200 bg-white p-5 rounded-md items-center">
                             <LuSmartphone fontSize={44} className="text-gray-500"/>
                             <p className="text-xs font-normal text-black">Smartphone</p>

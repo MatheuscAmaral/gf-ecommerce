@@ -13,6 +13,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		screens: {
+			xs: '480px',
+			xxs: '400px'
+		},
   		fontFamily: {
   			sans: ['Poppins', 'Helvetica', 'Arial', 'sans-serif']
   		},

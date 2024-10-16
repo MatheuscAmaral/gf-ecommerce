@@ -52,9 +52,9 @@ const SliderImages = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        ...(windowWidth >= 700 && { prevArrow: <PreviousArrow /> }),
-        ...( windowWidth >= 700 && { nextArrow: <NextArrow /> }),
-        ...(windowWidth >= 700 && {
+        ...(windowWidth >= 1060 && { prevArrow: <PreviousArrow /> }),
+        ...( windowWidth >= 1060 && { nextArrow: <NextArrow /> }),
+        ...(windowWidth >= 768 && {
             customPaging: function (i: any) {
                 return (
                     <Image
@@ -68,7 +68,7 @@ const SliderImages = () => {
                 );
             }
         }),
-        ...(windowWidth >= 700 && { dotsClass: "slick-dots custom-dots" })
+        ...(windowWidth >= 768 && { dotsClass: "slick-dots custom-dots" })
     };
 
     return (

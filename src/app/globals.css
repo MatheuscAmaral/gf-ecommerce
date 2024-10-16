@@ -45,6 +45,12 @@
   }
 }
 
+@media (max-width: 480px) {
+  .custom-width {
+    width: 100%;
+  }
+}
+
 
 @layer base {
 :root {
