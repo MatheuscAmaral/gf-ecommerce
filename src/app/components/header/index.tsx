@@ -213,7 +213,7 @@ const Header = () => {
               </span>
             </button>
             
-            <div className="absolute bottom-6 md:bottom-0 right-0 md:left-0 opacity-0">
+            <div className="absolute bottom-6 md:bottom-0 right-4 xs:right-2 md:left-0 opacity-0">
               {(['right'] as const).map((anchor) => (
                 <React.Fragment key={anchor}>
                   <Button className="text-xs mr-3" onClick={toggleDrawer(anchor, true)}>
