@@ -58,7 +58,7 @@ const Slider = () => {
       opts={{
         align: "center",
       }}
-      className="w-full max-w-sm sm:max-w-xl md:max-w-4xl"
+      className="w-full max-w-xs xs:max-w-md  sm:max-w-xl md:max-w-4xl"
     >
       <CarouselContent className="flex flex-row md:justify-center ">
         {categories.map((c, index) => (

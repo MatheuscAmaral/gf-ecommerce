@@ -154,14 +154,14 @@ const Header = () => {
     <main
       className={`${
         mobile && "overflow-hidden"
-      } w-full fixed shadow-lg top-0 bg-white z-50`}
+      } w-full xxs:max-w-full fixed shadow-lg top-0 bg-white z-50`}
     >
-      <header className="w-full flex justify-between items-center mx-auto max-w-6xl py-3 px-3 xl:px-0">
+      <header className="w-full flex justify-between max-w-sm items-center mx-auto md:max-w-5xl py-3 xl:px-0">
         <button
           className="flex md:hidden hover:bg-gray-100 rounded-md transition-all p-3"
           onClick={() => setMobile(true)}
         >
-          <FaBarsStaggered fontSize={20} />
+          <FaBarsStaggered fontSize={20} className="text-gray-700" />
         </button>
 
         <button onClick={() => router.push("/")}>
@@ -170,7 +170,7 @@ const Header = () => {
 
 
         <ul
-          className="flex items-center gap-10 font-medium text-gray-700 md:pr-4 xl:pr-0"
+          className="flex items-center gap-10 font-medium text-gray-700 pr-4 xl:pr-0"
           style={{ fontSize: 11 }}
         >
           <li className="hidden md:flex">
@@ -206,9 +206,11 @@ const Header = () => {
           </li>
 
           <li className="md:relative">
-            <button className="relative mr-2 md:mr-0 md:ml-5">
-              <RiShoppingBag3Line className="text-gray-700 hover:text-gray-500" fontSize={23}/>
-              <span className="absolute bottom-5 left-3 px-1 py-0 bg-gray-400 rounded-full text-white">0</span>
+            <button className="relative">
+              <RiShoppingBag3Line fontSize={24} className="text-gray-700" />
+              <span className="absolute -top-1 -right-1 bg-gray-500 text-white text-xs rounded-full px-1">
+                0
+              </span>
             </button>
             
             <div className="absolute bottom-6 md:bottom-0 right-0 md:left-0 opacity-0">
