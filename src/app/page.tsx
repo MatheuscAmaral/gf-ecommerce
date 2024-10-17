@@ -133,10 +133,10 @@ const categories = [
 const Home = async () => {
   return (
     <Container>
-         {/* <CarouselImages/> */}
+         <CarouselImages/>
 
         <section className="flex flex-col gap-16 w-full mb-20 mt-10 xs:mt-20">
-          <div className="xxs:mr-10 md:mr-0">
+          <div className="xxs:mr-10 xs:mr-0 max-w-xs xs:max-w-full mx-auto xs:mx-0">
             <Categories categories={categories} />
           </div>
 
