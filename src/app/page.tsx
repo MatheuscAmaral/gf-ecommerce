@@ -135,7 +135,7 @@ const Home = async () => {
     <Container>
          {/* <CarouselImages/> */}
 
-        {/* <section className="flex flex-col gap-16 w-full mb-20 mt-10 xs:mt-20">
+        <section className="flex flex-col gap-16 w-full mb-20 mt-10 xs:mt-20">
           <div className="xxs:mr-10 md:mr-0">
             <Categories categories={categories} />
           </div>
@@ -158,7 +158,7 @@ const Home = async () => {
 
             <ButtonSeeAllProducts route="/catalog/all"/>
           </div>
-        </section> */}
+        </section>
 
         <Link href={"https://wa.me/+553197066818"} target="_blank" className="bg-green-400 hover:bg-green-300 transition-all p-3.5 rounded-full fixed bottom-5 right-5 text-white">
           <FaWhatsapp fontSize={30}/>

@@ -10,7 +10,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
   const router = useRouter();
 
   return (
-    <div className="flex gap-2 max-w-5xl mx-auto pt-1 items-center text-xs text-gray-700">
+    <div className="flex gap-2 max-w-6xl mx-auto pt-1 items-center text-xs text-gray-700">
       <button onClick={() => router.push("/")} className=" hover:text-gray-400">
         HOME
       </button>
