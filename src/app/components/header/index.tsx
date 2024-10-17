@@ -94,62 +94,61 @@ const Header = () => {
     setState({ ...state, [anchor]: open });
   };
 
-const list = (anchor: Anchor) => (
-  <Box
-    sx={{ width: !(anchor === 'right') ? 'auto' : 330 }}
-    role="presentation"
-    onKeyDown={toggleDrawer(anchor, false)}
-  >
-    <section className="flex justify-between px-5 py-2 items-center select-none">
-      <p className="text-sm">Carrinho <span>(0)</span></p>
-      <IoClose fontSize={23} className="cursor-pointer" onClick={toggleDrawer(anchor, false)}/>
-    </section>
-    <Divider className="opacity-35"/>
+  const list = (anchor: Anchor) => (
+    <Box
+      sx={{ width: !(anchor === 'right') ? 'auto' : 330 }}
+      role="presentation"
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <section className="flex justify-between px-3 py-2 items-center select-none">
+        <p className="text-md">Carrinho <span className="text-sm">(0)</span></p>
+        <IoClose fontSize={23} className="cursor-pointer" onClick={toggleDrawer(anchor, false)}/>
+      </section>
+      <Divider className="opacity-35"/>
 
-    <section className="flex flex-col gap-3 w-full mt-5 px-3">
-      {
-        products && products.map((p) => {
-            return (
-              <div className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
-                <img src={p.img} className="w-20 h-20 object-cover"/>
+      <section className="flex flex-col gap-3 w-full mt-5 px-3">
+        {
+          products && products.map((p) => {
+              return (
+                <div key={p.id} className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
+                  <img src={p.img} className="w-20 h-20 object-cover"/>
 
-                <div className="flex flex-col gap-2">
-                  <div className="flex flex-col gap-3 mt-2">
-                    <h4 className="text-xs font-semibold text-black">{p.title}</h4>
-                    <div className="flex gap-1 border-1 w-14 items-center justify-center text-sm border-gray-100 px-1 rounded-full">
-                      <button>-</button>
-                      <span className="text-xs">0</span>
-                      <button>+</button>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-3 mt-2">
+                      <h4 className="text-xs font-semibold text-black">{p.title}</h4>
+                      <div className="flex gap-1 border-1 w-14 items-center justify-center text-sm border-gray-100 px-1 rounded-full">
+                        <button>-</button>
+                        <span className="text-xs">0</span>
+                        <button>+</button>
+                      </div>
                     </div>
+
+                    <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(p.price)}</p>
+                    <FaTrash fontSize={15} className="absolute right-2 top-2 hover:text-red-500 transition-all"/>
                   </div>
-
-                  <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(p.price)}</p>
-                  <FaTrash fontSize={15} className="absolute right-2 top-2 hover:text-red-500 transition-all"/>
                 </div>
-              </div>
-            )
-        })
-      }
-    </section>
+              )
+          })
+        }
+      </section>
 
-    <section className="h-52 text-md flex pl-5 pr-3 max-w-80 flex-col gap-3 justify-center w-full fixed bottom-0 bg-white">
-      <div className="flex flex-col gap-1">
-        <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(products[0].price)}</span></p>
-        <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
-      </div>
+      <section className="h-52 text-md flex pl-5 pr-3 max-w-80 flex-col gap-3 justify-center w-full fixed bottom-0 bg-white">
+        <div className="flex flex-col gap-1">
+          <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(products[0].price)}</span></p>
+          <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
+        </div>
 
-      <hr />
-      
-      <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(products[0].price)}</span></p>
-      <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
+        <hr />
+        
+        <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(products[0].price)}</span></p>
+        <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
 
-      <Button className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
-        <TbCircleDashedCheck fontSize={20}/> Finalizar compra
-      </Button>
-    </section>
-  </Box>
-);
-
+        <Button className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
+          <TbCircleDashedCheck fontSize={20}/> Finalizar compra
+        </Button>
+      </section>
+    </Box>
+  );
 
   return (
     <main
@@ -207,7 +206,7 @@ const list = (anchor: Anchor) => (
           </li>
 
           <li className="md:relative">
-            <button className="relative mr-4 md:mr-0 md:ml-5">
+            <button className="relative mr-2 md:mr-0 md:ml-5">
               <RiShoppingBag3Line className="text-gray-700 hover:text-gray-500" fontSize={23}/>
               <span className="absolute bottom-5 left-3 px-1 py-0 bg-gray-400 rounded-full text-white">0</span>
             </button>
