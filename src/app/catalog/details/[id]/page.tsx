@@ -11,8 +11,10 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { LuSmartphone, LuBatteryCharging, LuShieldCheck, LuSparkles } from "react-icons/lu";
 import SliderProducts from "@/app/components/sliderProducts";
 import ButtonSeeAllProducts from "@/app/components/buttonSeeAllProducts";
+import ButtonAddToCart from "@/app/components/buttonAddToCart";
 
 export interface ProductProps {
+    id: number,
     title: string,
     description: string,
     img: string,
@@ -24,6 +26,7 @@ export interface ProductProps {
 }
 
 const product: ProductProps = {
+    id: 1,
     title: "iPhone 16",
     description: "6.1 polegadas, Retina LCD, Chip A13, Câmera Dupla",
     img: iphone.src,
@@ -167,7 +170,7 @@ const Details = ({ params }: ParamsProps ) => {
 
                     {
                         product.stock > 0 ? (
-                            <Button className="hidden sm:flex sm:mr-10 bg-gray-200 hover:bg-gray-400 border text-black mt-10 rounded-full p-6 text-md font-semibold">Comprar</Button>
+                            <ButtonAddToCart product={product}/>
                         ) : (
                             <div className="flex gap-2 mt-10 items-center bg-gray-100 rounded-lg p-7">
                                 <MdOutlineRemoveShoppingCart fontSize={20}/>
@@ -191,7 +194,7 @@ const Details = ({ params }: ParamsProps ) => {
                                 </section>
 
                                 <section className="w-full flex justify-center items-center">
-                                    <Button className="bg-gray-200 hover:bg-gray-400 border text-black rounded-full p-6 text-md font-semibold w-full">Comprar</Button>
+                                    <ButtonAddToCart product={product}/>
                                 </section>
                             </div>
                         )

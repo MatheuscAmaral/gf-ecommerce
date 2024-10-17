@@ -1,7 +1,7 @@
 "use client";
 
 import logo from "../../../images/logo.png";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
@@ -13,53 +13,17 @@ import { LuUser } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import Box from '@mui/material/Box';
-import iphone from "../../../images/iphone.png"
-import ipad from "../../../images/ipad.png";
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Divider from '@mui/material/Divider';
 import { FaTrash } from "react-icons/fa";
 import { TbCircleDashedCheck } from "react-icons/tb";
 import { Button } from "@/components/ui/button";
+import { cartContext } from "@/app/contexts/cartContex";
 
 type Anchor = 'right';
 
-const products = [
-  {
-    id: 1,
-    title: "iPhone 16 pro max",
-    description: "6.1 polegadas, A14 Bionic, Super...",
-    img: ipad.src,
-    priceWithDisccount: 7000,
-    price: 6500,
-    category: "Smartphones",
-    storage: ["64GB", "128GB"],
-    stock: 10,
-  },
-  {
-    id: 1,
-    title: "iPhone 16 pro max",
-    description: "6.1 polegadas, A14 Bionic, Super...",
-    img: ipad.src,
-    priceWithDisccount: 7000,
-    price: 6500,
-    category: "Smartphones",
-    storage: ["64GB", "128GB"],
-    stock: 10,
-  },
-  {
-    id: 1,
-    title: "iPhone 16 pro max",
-    description: "6.1 polegadas, A14 Bionic, Super...",
-    img: iphone.src,
-    priceWithDisccount: 7000,
-    price: 6500,
-    category: "Smartphones",
-    storage: ["64GB", "128GB"],
-    stock: 10,
-  }
-];
-
 const Header = () => {
+  const { cart } = useContext(cartContext);
   const [mobile, setMobile] = useState(false);
   const [state, setState] = useState({
     right: false,
@@ -108,22 +72,22 @@ const Header = () => {
 
       <section className="flex flex-col gap-3 w-full mt-5 px-3">
         {
-          products && products.map((p) => {
+          cart && cart.map((c) => {
               return (
-                <div key={p.id} className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
-                  <img src={p.img} className="w-20 h-20 object-cover"/>
+                <div key={c.id} className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
+                  <img src={c.img} className="w-20 h-20 object-cover"/>
 
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-3 mt-2">
-                      <h4 className="text-xs font-semibold text-black">{p.title}</h4>
+                      <h4 className="text-xs font-semibold text-black">{c.title}</h4>
                       <div className="flex gap-1 border-1 w-14 items-center justify-center text-sm border-gray-100 px-1 rounded-full">
                         <button>-</button>
-                        <span className="text-xs">0</span>
+                        <span className="text-xs">{c.quantity || 1}</span>
                         <button>+</button>
                       </div>
                     </div>
 
-                    <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(p.price)}</p>
+                    <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(c.price)}</p>
                     <FaTrash fontSize={15} className="absolute right-2 top-2 hover:text-red-500 transition-all"/>
                   </div>
                 </div>
@@ -134,13 +98,13 @@ const Header = () => {
 
       <section className="h-52 text-md flex pl-5 pr-3 max-w-80 flex-col gap-3 justify-center w-full fixed bottom-0 bg-white">
         <div className="flex flex-col gap-1">
-          <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(products[0].price)}</span></p>
+          <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
           <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
         </div>
 
         <hr />
         
-        <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(products[0].price)}</span></p>
+        <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
         <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
 
         <Button className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
@@ -156,7 +120,7 @@ const Header = () => {
         mobile && "overflow-hidden"
       } w-full xxs:max-w-full fixed shadow-lg top-0 bg-white z-50`}
     >
-      <header className="w-full flex justify-between max-w-sm items-center mx-auto xs:max-w-6xl py-3 xl:px-0">
+      <header className="w-full flex justify-between max-w-md items-center mx-auto xs:max-w-6xl py-3 xl:px-0">
         <button
           className="flex md:hidden hover:bg-gray-100 rounded-md transition-all p-3"
           onClick={() => setMobile(true)}
@@ -209,11 +173,11 @@ const Header = () => {
             <button className="relative">
               <RiShoppingBag3Line fontSize={24} className="text-gray-700" />
               <span className="absolute -top-1 -right-1 bg-gray-500 text-white text-xs rounded-full px-1">
-                0
+                {cart && cart.length}
               </span>
             </button>
             
-            <div className="absolute bottom-6 md:bottom-0 right-4 xs:right-2 md:left-0 opacity-0">
+            <div className="absolute bottom-6 md:bottom-0 right-4 xxs:right-2 md:left-0 opacity-0">
               {(['right'] as const).map((anchor) => (
                 <React.Fragment key={anchor}>
                   <Button className="text-xs mr-3" onClick={toggleDrawer(anchor, true)}>
