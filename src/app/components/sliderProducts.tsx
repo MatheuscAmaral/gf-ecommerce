@@ -27,7 +27,7 @@ const SliderProducts = ({ products }: { products: ProductProps[] }) => {
       opts={{
         align: "start",
       }}
-      className="w-full max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto z-0"
+      className="w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto z-0"
     >
       <CarouselContent className="flex flex-row">
         {products.map((p, index) => (

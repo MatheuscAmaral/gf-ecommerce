@@ -50,7 +50,7 @@ const products = [
       stock: 10,
     },
     {
-      id: 1,
+      id: 2,
       title: "iPhone 16 pro max",
       description: "6.1 polegadas, A14 Bionic, Super...",
       img: iphone.src,
@@ -61,7 +61,7 @@ const products = [
       stock: 10,
     },
     {
-      id: 1,
+      id: 3,
       title: "iPhone 16 pro max",
       description: "6.1 polegadas, A14 Bionic, Super...",
       img: iphone.src,
@@ -72,7 +72,7 @@ const products = [
       stock: 10,
     },
     {
-      id: 1,
+      id: 4,
       title: "iPhone 16 pro max",
       description: "6.1 polegadas, A14 Bionic, Super...",
       img: iphone.src,
@@ -83,7 +83,7 @@ const products = [
       stock: 10,
     },
     {
-      id: 1,
+      id: 5,
       title: "iPhone 16 pro max",
       description: "6.1 polegadas, A14 Bionic, Super...",
       img: iphone.src,
@@ -94,7 +94,7 @@ const products = [
       stock: 10,
     },
     {
-      id: 1,
+      id: 6,
       title: "iPhone 16 pro max",
       description: "6.1 polegadas, A14 Bionic, Super...",
       img: iphone.src,
@@ -105,7 +105,7 @@ const products = [
       stock: 10,
     },
     {
-      id: 1,
+      id: 7,
       title: "Iphone 16 pro max",
       description: "6.1 polegadas, A14 Bionic, Super...",
       img: iphone.src,
@@ -132,7 +132,7 @@ const Details = ({ params }: ParamsProps ) => {
             </section>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-10 my-16 sm:my-20 mx-auto max-w-6xl w-full px-5">
-                <div className=" ml-10">
+                <div>
                     <SliderImages/>
                 </div>
 

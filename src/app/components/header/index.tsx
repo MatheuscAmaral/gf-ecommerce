@@ -156,7 +156,7 @@ const Header = () => {
         mobile && "overflow-hidden"
       } w-full xxs:max-w-full fixed shadow-lg top-0 bg-white z-50`}
     >
-      <header className="w-full flex justify-between max-w-sm items-center mx-auto md:max-w-5xl py-3 xl:px-0">
+      <header className="w-full flex justify-between max-w-sm items-center mx-auto xs:max-w-5xl py-3 xl:px-0">
         <button
           className="flex md:hidden hover:bg-gray-100 rounded-md transition-all p-3"
           onClick={() => setMobile(true)}
@@ -165,7 +165,7 @@ const Header = () => {
         </button>
 
         <button onClick={() => router.push("/")}>
-          <img src={logoGf} className="w-14 md:w-12" alt="logo" />
+          <img src={logoGf} className="w-14 md:w-12 ml-2" alt="logo" />
         </button>
 
 

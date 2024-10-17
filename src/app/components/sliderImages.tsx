@@ -72,7 +72,7 @@ const SliderImages = () => {
     };
 
     return (
-        <Slider {...settings}>
+        <Slider {...settings} className="xs:ml-20 md:ml-0">
             <div className="relative">
                 <Image
                     src={iphone}

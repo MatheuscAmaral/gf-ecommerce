@@ -19,7 +19,7 @@ const Cards = ({ products }: { products: ProductProps[] }) => {
       {products.map((item, index) => (
         <Card
         onClick={() => router.push("/catalog/details/1")}
-        className="flex flex-row sm:flex-col gap-2 w-full h-full justify-start items-center lg:max-w-2xl"
+        className="flex flex-row sm:flex-col gap-0 sm:gap-2 w-full h-full justify-start items-center lg:max-w-2xl"
         style={{ maxHeight: "22rem" }}
         shadow="sm"
         key={index}
@@ -46,18 +46,18 @@ const Cards = ({ products }: { products: ProductProps[] }) => {
             <div className="flex flex-col text-start gap-0.5">
                 <p className="text-xs text-gray-700">Parcelas a partir de:</p>
                 <span className="flex text-xs sm:text-sm gap-2 font-medium">
-                <p
-                    className={`text-default-500 ${
-                    item.priceWithDisccount
-                        ? "line-through"
-                        : "text-green-700"
-                    }`}
-                >
-                    {formatPrice(item.price)}
-                </p>
-                <p className=" text-green-700">
-                    {formatPrice(item.priceWithDisccount)}
-                </p>
+                  <p
+                      className={`text-default-500 ${
+                      item.priceWithDisccount
+                          ? "line-through"
+                          : "text-green-700"
+                      }`}
+                  >
+                      {formatPrice(item.price)}
+                  </p>
+                  <p className=" text-green-700">
+                      {formatPrice(item.priceWithDisccount)}
+                  </p>
                 </span>
             </div>
             ) : (
