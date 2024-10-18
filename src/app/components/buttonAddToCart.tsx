@@ -8,18 +8,11 @@ import { cartContext } from "../contexts/cartContex";
 const ButtonAddToCart = ({ product }: { product: ProductProps }) => {
     const { addItemsCart } = useContext(cartContext);
 
-    const clickButton = () => {
-        if (product) {
-            console.log("Produto adicionado:", product);
-            addItemsCart(product);
-        }
-    };
-
     return (
         <Button
-            onClick={() => clickButton()}
+            onClick={() => addItemsCart(product)}
             type="button"
-            className="bg-gray-200 hover:bg-gray-400 border text-black rounded-full p-3 mt-3 text-md font-semibold w-full"
+            className="bg-gray-200 hover:bg-gray-400 border text-black rounded-full p-4 sm:p-6 sm:mt-10 text-md font-semibold w-full"
         >
             Comprar
         </Button>

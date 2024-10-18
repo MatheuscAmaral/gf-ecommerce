@@ -1,8 +1,6 @@
 'use client'
 
 import { ReactNode, createContext, useState  } from "react";
-import ipad from "../../images/ipad.png";
-
 interface CartProps {
     id: number,
     title: string,
@@ -18,7 +16,9 @@ interface CartProps {
 
 interface CartProviderProps {
     cart: CartProps[],
+    total: number,
     addItemsCart: (product: CartProps) => void;
+    removeItemsCart: (product: CartProps) => void;
 }
 
 interface ChildrenProps {
@@ -29,6 +29,7 @@ export const cartContext = createContext({} as CartProviderProps);
 
 const CartProvider = ({ children }: ChildrenProps) => {
     const [cart, setCart] = useState<CartProps[]>([]);
+    const [total, setTotal] = useState(0);
 
     const addItemsCart = (product: CartProps) => {
         const item = cart.find(c => c.id == product.id);
@@ -39,15 +40,30 @@ const CartProvider = ({ children }: ChildrenProps) => {
             ) : c);
 
             setCart(newCart);
-
             return;
         } 
         
         setCart(c => [...c, product]);
     }
 
+    const removeItemsCart = (product: CartProps) => {
+        const index = cart.findIndex(c => c.id === product.id);
+        
+        if (index != -1) {
+            if (product && product.quantity && product.quantity > 1) {
+                cart[index].quantity && cart[index].quantity--;
+                setCart([...cart]);
+                
+                return;
+            }
+            
+            cart.splice(index, 1);
+            setCart([...cart]);
+        }   
+    }
+
     return (
-        <cartContext.Provider value={{ cart, addItemsCart}}>
+        <cartContext.Provider value={{ cart, total, addItemsCart, removeItemsCart}}>
             {children}
         </cartContext.Provider>
     )

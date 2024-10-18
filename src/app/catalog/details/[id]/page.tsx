@@ -22,6 +22,7 @@ export interface ProductProps {
     price: number,
     category: string,
     storage: string[],
+    quantity?: number,
     stock: number
 }
 
@@ -170,7 +171,9 @@ const Details = ({ params }: ParamsProps ) => {
 
                     {
                         product.stock > 0 ? (
-                            <ButtonAddToCart product={product}/>
+                            <div className="w-full hidden sm:flex">
+                                <ButtonAddToCart product={product}/>
+                            </div>
                         ) : (
                             <div className="flex gap-2 mt-10 items-center bg-gray-100 rounded-lg p-7">
                                 <MdOutlineRemoveShoppingCart fontSize={20}/>

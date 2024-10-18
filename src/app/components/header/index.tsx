@@ -19,6 +19,9 @@ import { FaTrash } from "react-icons/fa";
 import { TbCircleDashedCheck } from "react-icons/tb";
 import { Button } from "@/components/ui/button";
 import { cartContext } from "@/app/contexts/cartContex";
+import ButtonPlus from "../buttonPlus";
+import ButtonMinus from "../buttonMinus";
+import ButtonTrash from "../buttonTrashProduct";
 
 type Anchor = 'right';
 
@@ -72,44 +75,61 @@ const Header = () => {
 
       <section className="flex flex-col gap-3 w-full mt-5 px-3">
         {
-          cart && cart.map((c) => {
-              return (
-                <div key={c.id} className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
-                  <img src={c.img} className="w-20 h-20 object-cover"/>
+          cart.length > 0 ? (
+              cart.map((c) => {
+                return (
+                  <div key={c.id} className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
+                    <img src={c.img} className="w-20 h-20 object-cover"/>
 
-                  <div className="flex flex-col gap-2">
-                    <div className="flex flex-col gap-3 mt-2">
-                      <h4 className="text-xs font-semibold text-black">{c.title}</h4>
-                      <div className="flex gap-1 border-1 w-14 items-center justify-center text-sm border-gray-100 px-1 rounded-full">
-                        <button>-</button>
-                        <span className="text-xs">{c.quantity || 1}</span>
-                        <button>+</button>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col gap-3 mt-2">
+                        <h4 className="text-xs font-semibold text-black">{c.title}</h4>
+                        <div className="flex gap-1 border-1 w-14 items-center justify-center text-sm border-gray-100 px-1 rounded-full">
+                          <ButtonMinus product={c}/>
+                            <span className="text-xs">{c.quantity || 1}</span>
+                          <ButtonPlus product={c}/>
+                        </div>
                       </div>
-                    </div>
 
-                    <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(c.price)}</p>
-                    <FaTrash fontSize={15} className="absolute right-2 top-2 hover:text-red-500 transition-all"/>
+                      <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(c.price)}</p>
+                      <ButtonTrash product={c}/>
+                    </div>
                   </div>
-                </div>
-              )
-          })
+                )
+            })
+          ) : (
+            <div className="flex flex-col gap-2 items-center justify-center my-auto mt-52">
+                <RiShoppingBag3Line fontSize={25}/>
+                <p>O carrinho está vázio!</p>
+            </div>
+          )
         }
       </section>
 
       <section className="h-52 text-md flex pl-5 pr-3 max-w-80 flex-col gap-3 justify-center w-full fixed bottom-0 bg-white">
-        <div className="flex flex-col gap-1">
-          <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
-          <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
-        </div>
+        {
+          cart && cart.length > 0 ? (
+            <>
+              <div className="flex flex-col gap-1">
+                  <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
+                  <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
+                </div>
 
-        <hr />
-        
-        <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
-        <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
+                <hr />
+                
+                <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
+                <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
 
-        <Button className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
-          <TbCircleDashedCheck fontSize={20}/> Finalizar compra
-        </Button>
+                <Button className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
+                  <TbCircleDashedCheck fontSize={20}/> Finalizar compra
+                </Button>
+            </>
+          ) :  (
+                <Button onClick={() => router.push("/catalog/all")} className="flex text-center gap-2 mt-36 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
+                  <TbCircleDashedCheck fontSize={20}/> Visualizar catálogo
+                </Button>
+          )
+        }
       </section>
     </Box>
   );
