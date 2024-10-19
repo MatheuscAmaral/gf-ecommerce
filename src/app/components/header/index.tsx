@@ -15,18 +15,15 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Divider from '@mui/material/Divider';
-import { FaTrash } from "react-icons/fa";
 import { TbCircleDashedCheck } from "react-icons/tb";
 import { Button } from "@/components/ui/button";
 import { cartContext } from "@/app/contexts/cartContex";
-import ButtonPlus from "../buttonPlus";
-import ButtonMinus from "../buttonMinus";
-import ButtonTrash from "../buttonTrashProduct";
+import CardProductCart from "../cards/cardProductCart";
 
 type Anchor = 'right';
 
 const Header = () => {
-  const { cart } = useContext(cartContext);
+  const { cart, total } = useContext(cartContext);
   const [mobile, setMobile] = useState(false);
   const [state, setState] = useState({
     right: false,
@@ -76,27 +73,7 @@ const Header = () => {
       <section className="flex flex-col gap-3 w-full mt-5 px-3">
         {
           cart.length > 0 ? (
-              cart.map((c) => {
-                return (
-                  <div key={c.id} className="flex gap-8 border-1 border-gray-100 rounded-md p-3 relative">
-                    <img src={c.img} className="w-20 h-20 object-cover"/>
-
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col gap-3 mt-2">
-                        <h4 className="text-xs font-semibold text-black">{c.title}</h4>
-                        <div className="flex gap-1 border-1 w-14 items-center justify-center text-sm border-gray-100 px-1 rounded-full">
-                          <ButtonMinus product={c}/>
-                            <span className="text-xs">{c.quantity || 1}</span>
-                          <ButtonPlus product={c}/>
-                        </div>
-                      </div>
-
-                      <p className="text-xs absolute bottom-3 right-2 text-gray-700 font-semibold">{formatPrice(c.price)}</p>
-                      <ButtonTrash product={c}/>
-                    </div>
-                  </div>
-                )
-            })
+            <CardProductCart products={cart}/>
           ) : (
             <div className="flex flex-col gap-2 items-center justify-center my-auto mt-52">
                 <RiShoppingBag3Line fontSize={25}/>
@@ -111,16 +88,16 @@ const Header = () => {
           cart && cart.length > 0 ? (
             <>
               <div className="flex flex-col gap-1">
-                  <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
+                  <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(cart[0].quantity ? total : cart[0].price)}</span></p>
                   <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
                 </div>
 
                 <hr />
                 
-                <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(cart && cart.length > 0 ? cart[0].price : 0)}</span></p>
+                <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(cart[0].quantity ? total : cart[0].price)}</span></p>
                 <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
 
-                <Button className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
+                <Button onClick={() => router.push("/checkout")} className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
                   <TbCircleDashedCheck fontSize={20}/> Finalizar compra
                 </Button>
             </>

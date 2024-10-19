@@ -1,12 +1,12 @@
 
 import CarouselImages from "./components/carousel";
 import Container from "./components/container";
-import SliderProducts from "./components/sliderProducts";
+import SliderProducts from "./components/sliders/sliderProducts";
 import iphone16 from "../images/iphone-16-1.webp"
 import iphone16pro from "../images/16pro.webp"
 import airpod from "../images/macbookPro 2.jpg"
 import watchUltra from "../images/watchultra.png"
-import ButtonSeeAllProducts from "./components/buttonSeeAllProducts";
+import ButtonSeeAllProducts from "./components/buttons/buttonSeeAllProducts";
 import iphone from "../images/iphone.png"
 import macbook from "../images/macbook.png";
 import relogio from "../images/relogio.png";

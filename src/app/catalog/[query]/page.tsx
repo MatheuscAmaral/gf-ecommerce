@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation';
 import Container from "../../components/container";
-import Slider from "../../components/sliderCategories";
+import Slider from "../../components/sliders/sliderCategories";
 import BreadCrumb from "../../components/breadCrumb";
-import Cards from "../../components/cardsProducts";
+import Cards from "../../components/cards/cardsProducts";
 import iphone from "../../../images/iphone16.webp"
 
 export interface ParamsProps {

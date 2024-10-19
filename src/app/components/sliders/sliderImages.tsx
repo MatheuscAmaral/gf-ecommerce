@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import iphone from "../../images/iphone16.webp";
+import iphone from "../../../images/iphone16.webp";
 import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "slick-carousel/slick/slick.css"; 

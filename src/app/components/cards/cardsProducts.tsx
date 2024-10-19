@@ -2,7 +2,7 @@
 
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { AiOutlineMinusCircle } from "react-icons/ai";
-import { ProductProps } from "../catalog/details/[id]/page";
+import { ProductProps } from "../../catalog/details/[id]/page";
 import { useRouter } from "next/navigation";
 
 const Cards = ({ products }: { products: ProductProps[] }) => { 

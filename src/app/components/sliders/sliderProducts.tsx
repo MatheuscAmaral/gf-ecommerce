@@ -10,7 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import { AiOutlineMinusCircle } from "react-icons/ai";
-import { ProductProps } from "../catalog/details/[id]/page";
+import { ProductProps } from "../../catalog/details/[id]/page";
 
 const SliderProducts = ({ products }: { products: ProductProps[] }) => {
   const router = useRouter();

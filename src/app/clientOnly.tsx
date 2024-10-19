@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import CartProvider from "./contexts/cartContex";
+import { Provider } from 'react-redux';
+import { store } from '../app/redux/store';
 
 
 export default function ClientOnly({ children }: { children: React.ReactNode }) {
@@ -16,10 +18,12 @@ export default function ClientOnly({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <CartProvider>
-      <Header/>
-      {children}
-      <Footer/>
-    </CartProvider>
+    <Provider store={store}>
+      <CartProvider>
+        <Header/>
+        {children}
+        <Footer/>
+      </CartProvider>
+    </Provider>
   );
 }

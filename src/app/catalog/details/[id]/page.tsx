@@ -2,16 +2,15 @@ import BreadCrumb from "@/app/components/breadCrumb";
 import Container from "@/app/components/container";
 import { ParamsProps } from "../../[query]/page";
 import iphone from "../../../../images/iphone16.webp";
-import ButtonStorage from "@/app/components/buttonsStorage";
+import ButtonStorage from "@/app/components/buttons/buttonsStorage";
 import { TbClockHour4 } from "react-icons/tb";
-import { Button } from "@nextui-org/react";
 import { TbTruckDelivery } from "react-icons/tb";
-import SliderImages from "@/app/components/sliderImages";
+import SliderImages from "@/app/components/sliders/sliderImages";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { LuSmartphone, LuBatteryCharging, LuShieldCheck, LuSparkles } from "react-icons/lu";
-import SliderProducts from "@/app/components/sliderProducts";
-import ButtonSeeAllProducts from "@/app/components/buttonSeeAllProducts";
-import ButtonAddToCart from "@/app/components/buttonAddToCart";
+import SliderProducts from "@/app/components/sliders/sliderProducts";
+import ButtonSeeAllProducts from "../../../components/buttons/buttonSeeAllProducts";
+import ButtonAddToCart from "@/app/components/buttons/buttonAddToCart";
 
 export interface ProductProps {
     id: number,
@@ -21,6 +20,7 @@ export interface ProductProps {
     priceWithDisccount: number,
     price: number,
     category: string,
+    storageSelect?: string,
     storage: string[],
     quantity?: number,
     stock: number
@@ -119,7 +119,7 @@ const products = [
       storage: ["64GB", "128GB"],
       stock: 10,
     },
-  ];
+];
 
 const formatPrice = (value: number) => {
     return new Intl.NumberFormat('pt-BR', {

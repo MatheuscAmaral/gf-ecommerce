@@ -7,12 +7,12 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import iphone from "../../images/iphone.png";
-import macbook from "../../images/macbook.png";
-import relogio from "../../images/relogio.png";
-import ps5 from "../../images/ps5.png";
-import camera from "../../images/camera.png";
-import ipad from "../../images/ipad.png";
+import iphone from "../../../images/iphone.png";
+import macbook from "../../../images/macbook.png";
+import relogio from "../../../images/relogio.png";
+import ps5 from "../../../images/ps5.png";
+import camera from "../../../images/camera.png";
+import ipad from "../../../images/ipad.png";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
