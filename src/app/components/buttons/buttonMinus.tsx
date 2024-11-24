@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { cartContext } from "../../contexts/cartContex"
-import { ProductProps } from "../../catalog/details/[id]/page";
+import { ProductProps } from "@/interfaces/productProps";
 
 const ButtonMinus = ({ product } : { product : ProductProps}) => {
     const { removeItemsCart } = useContext(cartContext);
