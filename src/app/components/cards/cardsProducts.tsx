@@ -2,17 +2,12 @@
 
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { AiOutlineMinusCircle } from "react-icons/ai";
-import { ProductProps } from "../../catalog/details/[id]/page";
 import { useRouter } from "next/navigation";
+import { ProductProps } from "@/interfaces/productProps";
+import { formatPrice } from "@/lib/formatPrice";
 
 const Cards = ({ products }: { products: ProductProps[] }) => { 
   const router = useRouter();
-  const formatPrice = (value: number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
 
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
@@ -50,12 +45,12 @@ const Cards = ({ products }: { products: ProductProps[] }) => {
                       className={`text-default-500 ${
                       item.priceWithDisccount
                           ? "line-through"
-                          : "text-green-700"
+                          : "text-primary"
                       }`}
                   >
                       {formatPrice(item.price)}
                   </p>
-                  <p className=" text-green-700">
+                  <p className=" text-primary">
                       {formatPrice(item.priceWithDisccount)}
                   </p>
                 </span>

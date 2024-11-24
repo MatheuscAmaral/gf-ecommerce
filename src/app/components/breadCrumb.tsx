@@ -1,8 +1,8 @@
 "use client";
 
 import { IoIosArrowForward } from "react-icons/io";
-import { ParamsProps } from "../catalog/[query]/page";
 import { useRouter } from "next/navigation";
+import { ParamsProps } from "@/interfaces/paramsProps";
 
 
 const BreadCrumb = ({ params }: ParamsProps) => {
@@ -11,13 +11,13 @@ const BreadCrumb = ({ params }: ParamsProps) => {
 
   return (
     <div className="flex gap-2 max-w-6xl mx-auto pt-1 items-center text-xs text-gray-700">
-      <button onClick={() => router.push("/")} className=" hover:text-gray-400">
+      <button onClick={() => router.push("/")} className=" hover:text-primary">
         HOME
       </button>
       <IoIosArrowForward fontSize={15} />
       <button
         onClick={() => router.push("/catalog/all")}
-        className=" text-gray-500  hover:text-gray-400"
+        className=" text-gray-500  hover:text-primary"
       >
         CATÁLOGO
       </button>
@@ -25,7 +25,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
       {query == "iphones" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <button onClick={() => router.push("/catalog/iphones")} className=" hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/iphones")} className=" hover:text-primary">
             IPHONES
           </button>
         </>
@@ -34,7 +34,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
       {query == "macbooks" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <button onClick={() => router.push("/catalog/macbooks")} className=" hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/macbooks")} className=" hover:text-primary">
             MACBOOKS
           </button>
         </>
@@ -43,7 +43,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
       {query == "relogios" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <button onClick={() => router.push("/catalog/relogios")} className=" hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/relogios")} className=" hover:text-primary">
             RELÓGIOS
           </button>
         </>
@@ -52,7 +52,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
       {query == "ipads" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <button onClick={() => router.push("/catalog/ipads")} className=" hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/ipads")} className=" hover:text-primary">
             IPADS
           </button>
         </>
@@ -61,7 +61,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
       {query == "consoles" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <button onClick={() => router.push("/catalog/consoles")} className=" hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/consoles")} className=" hover:text-primary">
             CONSOLES
           </button>
         </>
@@ -70,7 +70,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
       {query == "cameras" && (
         <>
           <IoIosArrowForward fontSize={15} />
-          <button onClick={() => router.push("/catalog/cameras")} className=" hover:text-gray-400">
+          <button onClick={() => router.push("/catalog/cameras")} className=" hover:text-primary">
             CAMERAS
           </button>
         </>
@@ -79,7 +79,7 @@ const BreadCrumb = ({ params }: ParamsProps) => {
       { id && (
          <>
             <IoIosArrowForward fontSize={15} />
-            <button onClick={() => router.push(`/catalog/details/${id}`)} className=" hover:text-gray-400">
+            <button onClick={() => router.push(`/catalog/details/${id}`)} className=" hover:text-primary">
                 {id}
             </button>
          </>

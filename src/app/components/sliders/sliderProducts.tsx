@@ -10,17 +10,11 @@ import {
 import { useRouter } from "next/navigation";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import { AiOutlineMinusCircle } from "react-icons/ai";
-import { ProductProps } from "../../catalog/details/[id]/page";
+import { ProductProps } from "@/interfaces/productProps";
+import { formatPrice } from "@/lib/formatPrice";
 
 const SliderProducts = ({ products }: { products: ProductProps[] }) => {
   const router = useRouter();
-
-  const formatPrice = (value: number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
 
   return (
     <Carousel
@@ -67,12 +61,12 @@ const SliderProducts = ({ products }: { products: ProductProps[] }) => {
                           className={`text-default-500 ${
                             p.priceWithDisccount
                               ? "line-through"
-                              : "text-green-700"
+                              : "text-primary"
                           }`}
                         >
                           {formatPrice(p.price)}
                         </p>
-                        <p className=" text-green-700">
+                        <p className=" text-primary">
                           {formatPrice(p.priceWithDisccount)}
                         </p>
                       </span>

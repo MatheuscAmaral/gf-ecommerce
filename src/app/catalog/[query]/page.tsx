@@ -4,13 +4,7 @@ import Slider from "../../components/sliders/sliderCategories";
 import BreadCrumb from "../../components/breadCrumb";
 import Cards from "../../components/cards/cardsProducts";
 import iphone from "../../../images/iphone16.webp"
-
-export interface ParamsProps {
-  params: {
-    query: string;
-    id: number;
-  };
-}
+import { ParamsProps } from '@/interfaces/paramsProps';
 
 const products = [
   {

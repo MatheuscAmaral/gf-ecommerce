@@ -5,7 +5,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import CartProvider from "./contexts/cartContex";
 import { Provider } from 'react-redux';
-import { store } from '../app/redux/store';
+import { store } from '../store/store';
 
 
 export default function ClientOnly({ children }: { children: React.ReactNode }) {

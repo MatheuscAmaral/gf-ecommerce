@@ -16,11 +16,11 @@ const SignIn = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <main className="grid grid-cols-1 md:grid-cols-[1fr,1.1fr] justify-center w-full min-h-screen select-none">
-      <section className="flex items-center justify-center w-full mx-auto">
+    <main className="grid grid-cols-1 md:grid-cols-[1fr,1.1fr] justify-center w-full max-h-screen select-none overflow-hidden">
+      <section className="flex items-center justify-center w-full mx-auto max-h-screen">
         <form className="flex flex-col gap-5 justify-center max-w-2xl text-center px-10 w-full transition-all">
           <h2 className="text-4xl font-semibold">
-            Entrar <span className="text-gray-400">com</span>
+            Entrar <span className="text-primary">com</span>
           </h2>
 
           <div className="flex flex-col gap-7">
@@ -70,19 +70,19 @@ const SignIn = () => {
 
             </div>
 
-            <Button className="w-full py-6 px-3 text-sm text-white font-semibold bg-gray-400 hover:bg-gray-300">
+            <Button className="w-full py-6 px-3 text-sm text-white font-semibold bg-primary hover:bg-secondary">
                 Entrar
             </Button>
           </div>
 
-          <p className="text-sm">Não possui usuário? <button type="button" onClick={() => router.push("/sign-up")} className="text-gray-500 hover:text-gray-400">Cadastre-se</button></p>
+          <p className="text-sm">Não possui usuário? <button type="button" onClick={() => router.push("/sign-up")} className="text-primary hover:text-secondary">Cadastre-se</button></p>
         </form>
       </section>
 
-      <section className="h-screen hidden md:block relative">
-        <img style={{ filter: "blur(5px)" }} src={wallpaper.src} className="w-full h-screen"/>
-        <div className="absolute top-0 left-0 w-full h-full bg-gray-300 opacity-50"></div>
-        <div className="flex justify-center items-center my-auto h-screen">
+      <section className="min-h-screen hidden md:block relative">
+        <img style={{ filter: "blur(5px)" }} src={wallpaper.src} className="w-full max-h-screen object-cover"/>
+        <div className="absolute top-0 left-0 w-full h-full bg-primary opacity-50"></div>
+        <div className="flex justify-center items-center my-auto h-full">
             <img 
                 src={logo.src} 
                 onClick={() => router.push("/")}

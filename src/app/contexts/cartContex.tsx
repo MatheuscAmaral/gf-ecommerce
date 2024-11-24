@@ -32,6 +32,8 @@ const CartProvider = ({ children }: ChildrenProps) => {
     const [cart, setCart] = useState<CartProps[]>([]);
     const [total, setTotal] = useState(0);
 
+    console.log(cart);
+
     const addItemsCart = (product: CartProps) => {
         const item = cart.find(c => {
             if ((c.id == product.id) && c.storageSelect != "" && (c.storageSelect == product.storageSelect)) {

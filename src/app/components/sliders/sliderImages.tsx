@@ -54,7 +54,7 @@ const SliderImages = () => {
         slidesToScroll: 1,
         ...(windowWidth >= 1060 && { prevArrow: <PreviousArrow /> }),
         ...( windowWidth >= 1060 && { nextArrow: <NextArrow /> }),
-        ...(windowWidth >= 768 && {
+        ...(windowWidth >= 1024 && {
             customPaging: function (i: any) {
                 return (
                     <Image
@@ -68,38 +68,35 @@ const SliderImages = () => {
                 );
             }
         }),
-        ...(windowWidth >= 768 && { dotsClass: "slick-dots custom-dots" })
+        ...(windowWidth >= 1024 && { dotsClass: "slick-dots custom-dots" })
     };
 
     return (
-        <Slider {...settings} className="xs:ml-20 md:ml-0">
-            <div className="relative">
+        <Slider {...settings} className="flex justify-center mb-20">
+            <div className="ml-40 lg:ml-0">
                 <Image
                     src={iphone}
-                    className="sm:ml-10 md:ml-0"
                     alt="iphone"
-                    width={windowWidth >= 700 ? 450 : 400}
-                    height={windowWidth >= 700 ? 450 : 400}
+                    width={400}
+                    height={400}
                 />
             </div>
 
-            <div>
+            <div className="ml-40 lg:ml-0">
                 <Image
                     src={iphone}
-                    className="sm:ml-10 md:ml-0"
                     alt="iphone"
-                    width={windowWidth >= 700 ? 450 : 400}
-                    height={windowWidth >= 700 ? 450 : 400}
+                    width={400}
+                    height={400}
                 />
             </div>
 
-            <div>
+            <div className="ml-40 lg:ml-0">
                 <Image
                     src={iphone}
-                    className="sm:ml-10 md:ml-0"
                     alt="iphone"
-                    width={windowWidth >= 700 ? 450 : 400}
-                    height={windowWidth >= 700 ? 450 : 400}
+                    width={400}
+                    height={400}
                 />
             </div>
         </Slider>

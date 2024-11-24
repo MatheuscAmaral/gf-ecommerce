@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ClientOnly from "../app/clientOnly"; 
 
 export const metadata: Metadata = {
-  title: "Gf Impports",
+  title: "Gf Imports",
 };
 
 export default function RootLayout({

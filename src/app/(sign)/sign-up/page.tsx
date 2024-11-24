@@ -16,11 +16,11 @@ const SignUp = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <main className="grid grid-cols-1 md:grid-cols-[1fr,1.1fr] justify-center w-full min-h-screen select-none">
-      <section className="flex items-center justify-center w-full mx-auto">
+    <main className="grid grid-cols-1 md:grid-cols-[1fr,1.1fr] justify-center w-full max-h-screen select-none overflow-hidden">
+      <section className="flex items-center justify-center w-full mx-auto max-h-screen">
         <form className="flex flex-col gap-5 justify-center max-w-2xl text-center px-10 w-full transition-all">
           <h2 className="text-4xl font-semibold">
-            Cadastre-<span className="text-gray-400">se</span>
+            Cadastre-<span className="text-primary">se</span>
           </h2>
 
           <div className="flex flex-col gap-7">
@@ -72,18 +72,18 @@ const SignUp = () => {
 
             </div>
 
-            <Button className="w-full py-6 px-3 text-sm text-white font-semibold bg-gray-400 hover:bg-gray-300">
+            <Button className="w-full py-6 px-3 text-sm text-white font-semibold bg-primary hover:bg-secondary">
                 Cadastrar
             </Button>
           </div>
 
-          <p className="text-sm">Já possui cadastro? <button type="button" onClick={() => router.push("/sign-in")} className="text-gray-500 hover:text-gray-400">Entrar</button></p>
+          <p className="text-sm">Já possui cadastro? <button type="button" onClick={() => router.push("/sign-in")} className="text-primary hover:text-secondary">Entrar</button></p>
         </form>
       </section>
 
-      <section className="h-screen hidden md:block relative">
+      <section className="h-screen hidden md:block relative max-h-screen">
         <img style={{ filter: "blur(5px)" }} src={wallpaper.src} className="w-full h-screen"/>
-        <div className="absolute top-0 left-0 w-full h-full bg-gray-300 opacity-50"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-primary opacity-50"></div>
         <div className="flex justify-center items-center my-auto h-screen">
             <img 
                 src={logo.src} 

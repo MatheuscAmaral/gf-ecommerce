@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { cartContext } from "../../contexts/cartContex"
-import { ProductProps } from "../../catalog/details/[id]/page";
 import { FaTrash } from "react-icons/fa";
+import { ProductProps } from "@/interfaces/productProps";
 
 const ButtonTrash = ({ product } : { product : ProductProps}) => {
     const { removeItemsCart } = useContext(cartContext);

@@ -60,9 +60,9 @@ const Footer = () => {
     ]
 
     return (
-        <footer className="pt-10 bg-gray-50">
-            <div className="md:max-w-6xl max-w-sm  mx-auto px-3 md:px-5">
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-24 md:gap-20 sm:ml-0 lg:gap-40 w-full justify-center">
+        <footer className="pt-10">
+            <div className="max-w-6xl mx-auto px-4 md:px-5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 pl-3 lg:grid-cols-4 gap-24 md:gap-20 sm:ml-0 lg:gap-40 md:pl-10 lg:pl-0 w-full justify-center">
                     <div className="flex flex-col gap-3 items-center max-w-40">
                        <RiMoneyDollarCircleLine fontSize={33} className="text-gray-400"/>
                        <h3 className="font-semibold text-sm">Pagamentos</h3>
@@ -114,13 +114,13 @@ const Footer = () => {
                     }
                 </div>
                 <div className="mt-10 py-10 border-t items-center justify-between sm:flex">
-                    <p className="text-gray-600 text-xs mb-5 md:mb-0">© 2024 Gf Impports. Todos os direitos reservados.</p>
-                    <div className="flex items-center gap-x-6 text-gray-400">
+                    <p className="text-gray-600 text-xs mb-5 md:mb-0">© 2024 Gf Imports. Todos os direitos reservados.</p>
+                    <div className="flex items-center gap-x-6 text-primary">
                         <a href="#">
-                            <FaWhatsapp fontSize={25} className="hover:text-gray-500 duration-150"/>
+                            <FaWhatsapp fontSize={25} className="hover:text-secondary duration-150"/>
                         </a>
                         <a href="#">
-                            <SiInstagram fontSize={23} className="hover:text-gray-500 duration-150"/>
+                            <SiInstagram fontSize={23} className="hover:text-secondary duration-150"/>
                         </a>
                     </div>
                 </div>

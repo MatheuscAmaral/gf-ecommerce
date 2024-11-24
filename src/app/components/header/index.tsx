@@ -19,6 +19,7 @@ import { TbCircleDashedCheck } from "react-icons/tb";
 import { Button } from "@/components/ui/button";
 import { cartContext } from "@/app/contexts/cartContex";
 import CardProductCart from "../cards/cardProductCart";
+import { formatPrice } from "@/lib/formatPrice";
 
 type Anchor = 'right';
 
@@ -35,13 +36,6 @@ const Header = () => {
     router.push(route);
     setMobile(false);
   }
-
-  const formatPrice = (value: number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
 
   const toggleDrawer =
   (anchor: Anchor, open: boolean) =>
@@ -97,12 +91,12 @@ const Header = () => {
                 <p className="flex justify-between font-semibold text-gray-700">Total: <span className="text-black">{formatPrice(cart[0].quantity ? total : cart[0].price)}</span></p>
                 <p className="mx-3 text-xs text-gray-600 py-2">Frete e impostos calculados no checkout</p>
 
-                <Button onClick={() => router.push("/checkout")} className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
+                <Button onClick={() => router.push("/checkout")} className="flex text-center gap-2 items-center py-5 mb-5 text-white bg-primary hover:bg-secondary">
                   <TbCircleDashedCheck fontSize={20}/> Finalizar compra
                 </Button>
             </>
           ) :  (
-                <Button onClick={() => router.push("/catalog/all")} className="flex text-center gap-2 mt-36 items-center py-5 mb-5 text-white bg-gray-500 hover:bg-gray-400">
+                <Button onClick={() => router.push("/catalog/all")} className="flex text-center gap-2 mt-36 items-center py-5 mb-5 text-white bg-primary hover:bg-secondary">
                   <TbCircleDashedCheck fontSize={20}/> Visualizar catálogo
                 </Button>
           )
@@ -119,57 +113,48 @@ const Header = () => {
     >
       <header className="w-full flex justify-between max-w-md items-center mx-auto xs:max-w-6xl py-3 xl:px-0">
         <button
-          className="flex md:hidden hover:bg-gray-100 rounded-md transition-all p-3"
+          className="flex lg:hidden hover:bg-gray-100 rounded-md transition-all p-3"
           onClick={() => setMobile(true)}
         >
           <FaBarsStaggered fontSize={20} className="text-gray-700" />
         </button>
 
         <button onClick={() => router.push("/")}>
-          <img src={logoGf} className="w-14 md:w-12 ml-2" alt="logo" />
+          <img src={logoGf} className="w-14 lg:w-12 ml-2" alt="logo" />
         </button>
-
 
         <ul
           className="flex items-center gap-10 font-medium text-gray-700 pr-4 xl:pr-0"
           style={{ fontSize: 11 }}
         >
-          <li className="hidden md:flex">
+          <li className="hidden lg:flex">
             <button
               onClick={() => router.push("/catalog/all")}
-              className="cursor-pointer text-start hover:text-gray-500"
+              className="cursor-pointer text-start hover:text-primary"
             >
               PRODUTOS
             </button>
           </li>
-          <li className="hidden md:flex">
+          <li className="hidden lg:flex">
             <button
               onClick={() => router.push("/catalog/all")}
-              className="cursor-pointer text-start hover:text-gray-500"
+              className="cursor-pointer text-start hover:text-primary"
             >
               COMO FUNCIONA
             </button>
           </li>
-          {/* <li className="hidden md:flex">
-            <button
-             onClick={() => router.push("/catalog/all")}
-              className="cursor-pointer text-start hover:text-gray-500"
-            >
-              CENTRAL DE AJUDA
-            </button>
-          </li> */}
 
-          <li className="hidden md:flex">
+          <li className="hidden lg:flex">
             <button onClick={() => router.push("/sign-in")} className="px-3 flex gap-2 items-center py-1 border border-gray-300 hover:bg-gray-100 transition-all rounded-xl font-semibold">
               <FaUserAlt fontSize={12} />
               <span>Já sou cliente</span>
             </button>
           </li>
 
-          <li className="md:relative">
+          <li className="lg:relative">
             <button className="relative">
               <RiShoppingBag3Line fontSize={24} className="text-gray-700" />
-              <span className="absolute -top-1 -right-1 bg-gray-500 text-white text-xs rounded-full px-1">
+              <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full px-1">
                 {cart && cart.length}
               </span>
             </button>
@@ -197,7 +182,7 @@ const Header = () => {
       
       {mobile && (
         <div
-          className={`fixed overflow-hidden md:hidden bg-white top-0 w-full min-h-screen`}
+          className={`fixed overflow-hidden lg:hidden bg-white top-0 w-full min-h-screen`}
         >
           <section className="flex justify-between items-center p-3 shadow-md">
             <button onClick={() => router.push("/")}>
@@ -238,42 +223,42 @@ const Header = () => {
                   <button
                     onClick={() => navigateRoutes("/catalog/iphones")}
                   >
-                    <li className="text-start hover:text-gray-500 cursor-pointer">
+                    <li className="text-start hover:text-primary cursor-pointer">
                       Iphones
                     </li>
                   </button>
                   <button
                     onClick={() => navigateRoutes("/catalog/macbooks")}
                   >
-                    <li className="text-start hover:text-gray-500 cursor-pointer">
+                    <li className="text-start hover:text-primary cursor-pointer">
                       MacBooks
                     </li>
                   </button>
                   <button
                      onClick={() => navigateRoutes("/catalog/relogios")}
                   >
-                    <li className="text-start hover:text-gray-500 cursor-pointer">
+                    <li className="text-start hover:text-primary cursor-pointer">
                       Apple Watchs
                     </li>
                   </button>
                   <button
                      onClick={() => navigateRoutes("/catalog/ipads")}
                   >
-                    <li className="text-start hover:text-gray-500 cursor-pointer">
+                    <li className="text-start hover:text-primary cursor-pointer">
                       Ipads
                     </li>
                   </button>
                   <button
                     onClick={() => navigateRoutes("/catalog/consoles")}
                   >
-                    <li className="text-start hover:text-gray-500 cursor-pointer">
+                    <li className="text-start hover:text-primary cursor-pointer">
                       Consoles
                     </li>
                   </button>
                   <button
                      onClick={() => navigateRoutes("/catalog/cameras")}
                   >
-                    <li className="text-start hover:text-gray-500 cursor-pointer">
+                    <li className="text-start hover:text-primary cursor-pointer">
                       Cameras
                     </li>
                   </button>

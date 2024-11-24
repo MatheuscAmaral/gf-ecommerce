@@ -1,16 +1,11 @@
-import { ProductProps } from "../../catalog/details/[id]/page";
+import { ProductProps } from "@/interfaces/productProps";
 import ButtonMinus from "../buttons/buttonMinus";
 import ButtonPlus from "../buttons/buttonPlus";
 import ButtonTrash from "../buttons/buttonTrashProduct";
+import { formatPrice } from "@/lib/formatPrice";
 
 
 const CardProductCart = ({ products }: { products : ProductProps[] }) => {
-    const formatPrice = (value: number) => {
-        return new Intl.NumberFormat("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        }).format(value);
-      };
 
     return (
        <div className="flex flex-col gap-3">
