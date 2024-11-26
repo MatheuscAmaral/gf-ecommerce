@@ -1,9 +1,10 @@
-import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
 import flowbitePlugin from "flowbite/plugin";
+import withMT from "@material-tailwind/react/utils/withMT";
 
 /** @type {import('tailwindcss').Config} */
-const config: Config = {
+
+module.exports = withMT({
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -65,5 +66,4 @@ const config: Config = {
   },
   darkMode: ["class", "class"],
   plugins: [nextui(), require("tailwindcss-animate"), flowbitePlugin]
-};
-export default config;
+});

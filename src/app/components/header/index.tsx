@@ -83,7 +83,7 @@ const Header = () => {
             <>
               <div className="flex flex-col gap-1">
                   <p className="flex justify-between font-semibold text-gray-700">SubTotal: <span className="text-black">{formatPrice(cart[0].quantity ? total : cart[0].price)}</span></p>
-                  <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-green-500">{formatPrice(0)}</span></p> 
+                  <p className="flex justify-between font-semibold text-gray-700">Descontos: <span className="text-primary">{formatPrice(0)}</span></p> 
                 </div>
 
                 <hr />
