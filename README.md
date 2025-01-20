@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-commerce
 
-## Getting Started
+Bem-vindo ao repositório do **E-commerce**, um projeto de venda online de produtos que se destaca pelo visual moderno e pela facilidade de uso. Este e-commerce foi desenvolvido utilizando **Next.js** para fornecer uma experiência web rápida, responsiva e de alta performance.
 
-First, run the development server:
+## Descrição
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O E-commerce é focado na exibição e venda de produtos online, oferecendo uma interface visualmente atraente e intuitiva para o usuário. Aqui você encontrará o código responsável pelo frontend da aplicação, incluindo layout, exibição de catálogo de produtos, carrinho de compras e outras funcionalidades essenciais para o fluxo de compra.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** – Framework React para desenvolvimento de aplicações web (server-side e client-side).
+- **React** – Biblioteca JavaScript para construção de interfaces de usuário.
+- **JavaScript/TypeScript** – Linguagem principal utilizada no desenvolvimento.
+- **CSS Modules / Styled Components / Tailwind CSS** – (dependendo da abordagem de estilização preferida).
+- **Node.js** – Ambiente de execução de JavaScript, viabilizando o uso do Next.js.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Funcionalidades Principais
 
-## Learn More
+- **Catálogo de Produtos**: Exibição organizada dos produtos, com imagens de alta qualidade e descrição detalhada.
+- **Carrinho de Compras**: Adição, edição e remoção de itens, além de cálculo automático de valores.
+- **Autenticação de Usuários**: Login, cadastro e gerenciamento de contas de clientes.
+- **Layout Responsivo**: Design otimizado para diversos tamanhos de tela, garantindo boa usabilidade em dispositivos móveis e desktops.
+- **Alta Performance**: Otimizações proporcionadas pelo Next.js, como renderização server-side e pré-renderização de páginas.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Sinta-se à vontade para explorar o código, contribuir e reportar issues ou melhorias. Esperamos que este projeto possa servir como base para a criação de diversos tipos de e-commerce utilizando Next.js!
